@@ -1,0 +1,26 @@
+{{#each cars}}
+{{!-- #each loops through the array in the cars key in the inventory.json file  --}}
+
+  <section id="card--{{@index}}" class="card-wrapper" style="border: 2px solid {{color}}">
+{{!-- '{{color}}'' above looks for the color property in the cars array object in inventory.json and assigns the color to the border --}}
+{{!-- '@index' will show what index number it found in the array --}}
+
+    <h3>Car #{{@index}}</h3>
+    <h4>{{year}} {{make}} {{model}}</h4>
+    <div class="car-price">${{price}}</div>
+    <div class="card-img" style="background-image: url('images/{{image}}')"></div>
+{{!-- above finds the image property on the object on inventory.json, which is a link to an image and puts it as the background-image --}}
+
+
+  {{#if purchased}}
+    <span class="car-sold">SOLD!</span>
+  {{/if}}
+{{!-- looks for "purchased": true on the inventory.json file and adds the SOLD! span --}}
+
+<p class="card-copy">{{description}}
+  </section>
+
+
+{{/each}}
+
+
